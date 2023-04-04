@@ -21,9 +21,14 @@ public class App {
         List<Map<String, String>> moovieList = parser.parse(body);
 
         for (Map<String,String> filme : moovieList) {
-            System.out.println(filme.get("title"));
+
+            double rating =  Double.valueOf(filme.get("imDbRating"));
+            
+            int intRating = (int)rating;    
+
+            System.out.println("\u001B[41m" + "\u001B[33m" + filme.get("title") + "\u001B[0m");
             System.out.println(filme.get("image"));           
-            System.out.println(filme.get("imDbRating"));
+            System.out.println("[\u2665]".repeat(intRating));
             System.out.println();
         }
     }
